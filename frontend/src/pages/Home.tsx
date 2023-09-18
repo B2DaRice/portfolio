@@ -1,46 +1,70 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { Box } from '@mui/material'
 import { NameLights } from '../components/NameLights'
 import { RouteLinks, RouteLinkType } from '../components/RouteLinks'
-import { HomeDivider } from '../components/HomeDivider'
-import { HomeCardDeveloper } from './Developer/HomeCardDeveloper'
-import { ScrollToHashElement } from '../components/utilities/ScrollToHashElement'
+import { 
+  HomeCardDeveloper, 
+  HomeCardMusician,
+  HomeCardArtist,
+  HomeCardFather,
+  HomeCardAbout,
+  HomeCardContact
+} from './HomeCards'
+import { useLocation } from 'react-router-dom'
+
+const links: { [cardKey: string]: RouteLinkType } = {
+  devCard: { 
+    title: 'Developer', 
+    to: '/developer', 
+    component: HomeCardDeveloper 
+  },
+  musicCard: { 
+    title: 'Musician', 
+    to: '/musician', 
+    component: HomeCardMusician 
+  },
+  artCard: { 
+    title: 'Artist', 
+    to: '/artist', 
+    component: HomeCardArtist 
+  },
+  dadCard: { 
+    title: 'Father', 
+    to: '/father', 
+    component: HomeCardFather
+  },
+  aboutCard: { 
+    title: 'About', 
+    to: '/about', 
+    component: HomeCardAbout 
+  },
+  contactCard: { 
+    title: 'Contact', 
+    to: '/contact', 
+    component: HomeCardContact 
+  }
+}
 
 export const Home = () => {
-  const links: { [cardKey: string]: RouteLinkType } = {
-    devCard: { 
-      title: 'Developer', 
-      to: '/#devCard', 
-      component: HomeCardDeveloper 
-    },
-    musicCard: { 
-      title: 'Musician', 
-      to: '/#musicCard', 
-      component: () => <Box></Box> 
-    },
-    artCard: { 
-      title: 'Artist', 
-      to: '/#artCard', 
-      component: () => <Box></Box> 
-    },
-    dadCard: { 
-      title: 'Father', 
-      to: '/#dadCard', 
-      component: () => <Box></Box> 
-    },
-    aboutCard: { 
-      title: 'About', 
-      to: '/#aboutCard', 
-      component: () => <Box></Box> 
-    },
-    contactCard: { 
-      title: 'Contact', 
-      to: '/#contactCard', 
-      component: () => <Box></Box> 
+  let location = useLocation();
+  const [selectedCard, setSelectedCard] = useState('')
+  const menuRef = useRef<HTMLElement>()
+
+  const onRouteClick = (cardKey: string) => {
+    if (cardKey !== selectedCard) {
+      setSelectedCard(cardKey);
+
+      if (menuRef.current) {
+        const menuBounds = menuRef.current.getBoundingClientRect()
+
+        if (menuBounds.top > 13) {
+          menuRef.current.scrollIntoView({
+            behavior: "smooth",
+          })
+        }
+      }
     }
   }
-  // const links: RouteLinkType[] = Object.values(linkConfig)
-  const [selectedCard, setSelectedCard] = useState('devCard')
 
   return (
     <Box
@@ -49,35 +73,37 @@ export const Home = () => {
       sx={{
         alignItems: 'start',
         width: '100%',
-        // padding: 10,
         lineHeight: 1,
-        // backgroundColor: 'grey'
       }}
     >
       <Box className='flexCol' sx={{
-        height: 'calc(100vh - 150px)',
+        height: 'calc(100vh - 105px)',
         width: '100%',
         padding: 15,
-        justifyContent: 'space-between',
       }}>
         <NameLights />
       </Box>
 
-      <ScrollToHashElement />
-      <Box width='100%'>
+      <Box 
+        width='100%' 
+        id="routeMenu"
+        sx={{ position: 'sticky', top: '28px' }}
+        ref={menuRef}
+      >
         <RouteLinks 
           links={links} 
-          onRouteClick={(cardKey: string) => {
-            setSelectedCard(cardKey)
-          }} 
+          onRouteClick={onRouteClick} 
         />
       </Box>
       
 
-      <Box width='100%' sx={{ 
-        marginTop: 25,
-        height: 'calc(100vh - 200px)',
-      }}>
+      <Box
+        width='100%' 
+        sx={{ 
+          marginTop: '13px',
+          height: 'calc(100vh - 100px)',
+        }}
+      >
         { selectedCard && 
           links[selectedCard].component({})
         }

@@ -1,3 +1,4 @@
+import React, { useRef } from 'react'
 import { Box } from '@mui/material'
 import { Link } from 'react-router-dom'
 
@@ -13,9 +14,9 @@ type RouteLinksProps = {
 }
 
 export const RouteLinks = ({ links, onRouteClick }: RouteLinksProps) => {
-  
+
   return (
-    <Box 
+    <Box
       className='flexRow'
       sx={{
         width: '100%',
@@ -24,8 +25,6 @@ export const RouteLinks = ({ links, onRouteClick }: RouteLinksProps) => {
         fontFamily: 'Athena',
         backgroundColor: 'black',
         boxShadow: '0 0 80px 70px black',
-        position: 'sticky',
-        top: 28,
         zIndex: 10,
       }}
     >
@@ -34,23 +33,27 @@ export const RouteLinks = ({ links, onRouteClick }: RouteLinksProps) => {
           <Box 
             key={`main-link-${index}`}
             sx={{
+              cursor: 'pointer',
+              textShadow: '0 0 30px #E900FF',
+              color: 'white',
+              fontSize: '2rem',
               '&:hover': {
                 fontWeight: 'bold',
-                textShadow: '0 0 30px #E900FF'
+                textShadow: '0 0 10px #E900FF'
               }
             }}
-            onClick={() => onRouteClick(cardKey) }
+            onClick={() => {onRouteClick(cardKey)} }
           >
-            <Link 
+            {/* <Link 
               to={links[cardKey].to}
               style={{ 
                 textDecoration: 'none',
                 color: 'white',
                 fontSize: '2rem'
               }}
-            >
+            > */}
               { links[cardKey].title }
-            </Link>
+            {/* </Link> */}
           </Box>
         ))
       }
