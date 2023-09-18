@@ -8,6 +8,11 @@ const componentStyle = () => {
   }
 
   return ({
+    dividerContainer: {
+      width: '100%',
+      overflow: 'hidden',
+      padding: '80px 0 60px 0'
+    },
     container: {
       width: '100%',
       color: 'white',
@@ -15,9 +20,8 @@ const componentStyle = () => {
       alignItems: 'center',
       transform: 'rotate(-2deg)',
       zIndex: 5,
-      scrollX: 'hidden',
       perspective: '0',
-      paddingBottom: '100px',
+      paddingBottom: '20px',
 
       // '& div': {
       //   position: 'absolute'
@@ -38,11 +42,9 @@ const componentStyle = () => {
     middleBox: {
       height: '100px',
       width: '120%',
-      // top: `${skewInPixels}px`,
       backgroundColor: 'black',
       justifyContent: 'end',
       alignItems: 'center',
-      scrollX: 'none',
       boxShadow: '0 0 20px 20px black',
 
       '& p': {
@@ -124,53 +126,40 @@ export const HomeDivider = ({ title }: { title: string }) => {
   }
 
   return (
-    // <Box sx={container}>
+    <Box className='flexCol' sx={styles.dividerContainer}>
+      <Box className='flexCol' sx={styles.container}>
+        <Box sx={{
+          ...lineStyles({ ...lineConfig.outter, rotate: 2 }),
+          height: '0.5px'
+        }} />
+        <Box sx={{
+          ...lineStyles({ ...lineConfig.middle, rotate: 1.5 }),
+          height: '1px'
+        }} />
+        <Box sx={{
+          ...lineStyles({ ...lineConfig.inner, rotate: 0.5 }),
+          height: '3px',
+        }} />
 
-    
-    <Box className='flexCol' sx={styles.container}>
-      
-      <Box sx={{
-        ...lineStyles({ ...lineConfig.outter, rotate: 2 }),
-        height: '0.5px'
-      }} />
-      <Box sx={{
-        ...lineStyles({ ...lineConfig.middle, rotate: 1.5 }),
-        height: '1px'
-      }} />
-      <Box sx={{
-        ...lineStyles({ ...lineConfig.inner, rotate: 0.5 }),
-        height: '3px',
-      }} />
-      {/* <Box sx={topTriangle} /> */}
-
-      <Box className='flexRow' sx={styles.middleBox}>
-        <Box sx={{ paddingRight: '350px' }}>
-          <Typography>{ title }</Typography>
+        <Box className='flexRow' sx={styles.middleBox}>
+          <Box sx={{ paddingRight: '350px' }}>
+            <Typography>{ title }</Typography>
+          </Box>
         </Box>
+
+        <Box sx={{
+          ...lineStyles({ ...lineConfig.inner, rotate: 1.5, translate: -5 }),
+          height: '2px'
+        }} />
+        <Box sx={{
+          ...lineStyles({ ...lineConfig.middle, rotate: 0.5, translate: 16 }),
+          height: '1px'
+        }} />
+        <Box sx={{
+          ...lineStyles({ ...lineConfig.outter, rotate: 1.2, translate: 35 }),
+          height: '0.5px'
+        }} />
       </Box>
-
-      <Box sx={{
-        ...lineStyles({ ...lineConfig.inner, rotate: 1.5, translate: -5 }),
-        height: '2px'
-      }} />
-
-      {/* <Box sx={{
-        ...lineStyles(16, 3, '#E900FF', 0.8, 10, 0.25),
-        height: '0.5px'
-      }} /> */}
-
-      <Box sx={{
-        ...lineStyles({ ...lineConfig.middle, rotate: 0.5, translate: 16 }),
-        height: '1px'
-      }} />
-
-      <Box sx={{
-        ...lineStyles({ ...lineConfig.outter, rotate: 1.2, translate: 35 }),
-        height: '0.5px'
-      }} />
-
-      {/* <Box sx={bottomTriangle} /> */}
     </Box>
-    // </Box>
   )
 }

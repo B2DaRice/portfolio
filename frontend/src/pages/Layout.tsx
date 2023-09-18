@@ -1,7 +1,6 @@
 import { Box } from '@mui/material'
 import { Outlet } from 'react-router-dom'
 import { Scrollbars } from 'react-custom-scrollbars-2'
-import { RouteLinks } from '../components/RouteLinks'
 
 export const MainLayout = () => {
   return (  
@@ -13,7 +12,7 @@ export const MainLayout = () => {
         width: '100vw',
       }}
     >
-      <Scrollbars style={{ width: '100%' }}>
+      <Scrollbars id='scrollContainer' style={{ width: '100%', overflowX: 'hidden' }}>
         <Outlet />
       </Scrollbars>
     </Box>

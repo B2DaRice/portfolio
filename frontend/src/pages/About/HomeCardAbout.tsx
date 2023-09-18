@@ -1,18 +1,18 @@
 import { Box, Typography } from '@mui/material'
 import { HomeDivider } from '../../components/HomeDivider'
 
-export const HomeCardDeveloper = () => {
-  const gifUrl = 'https://media.giphy.com/media/XIqCQx02E1U9W/giphy.gif'
+export const HomeCardAbout = () => {
+  const gifUrl = 'https://media.giphy.com/media/xT39D7GQo1m3LatZyU/giphy.gif'
   return (
     <Box 
-      id='devCard'
+      id='aboutCard'
       className='flexCol'
       sx={{
         width: '100%',
         height: '100%'
       }}
     >
-      <HomeDivider title='Developer' />
+      <HomeDivider title='About' />
 
       <Box 
         className='flexRow'
@@ -23,12 +23,12 @@ export const HomeCardDeveloper = () => {
           justifyContent: 'center',
         }}
       >
-        <Typography> I'm a Developer!</Typography>
-        <Box
+        <Typography> About me: See the rest of the site...</Typography>
+        {/* <Box
           component='img'
           src={gifUrl}
           height={200}
-        />
+        /> */}
       </Box>
 
       
