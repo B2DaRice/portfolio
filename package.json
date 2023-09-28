@@ -33,7 +33,7 @@
     "eject": "react-scripts eject",
     "start-prod": "serve -s build",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "prod-deployment -d build"
   },
   "eslintConfig": {
     "extends": [
