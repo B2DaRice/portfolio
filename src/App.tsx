@@ -1,8 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { CssBaseline, ThemeProvider, Typography } from '@mui/material';
-import { BackgroundStairs } from './components/BackgroundStairs';
+import { CssBaseline, ThemeProvider } from '@mui/material';
 import { mainTheme } from './theme/mainTheme';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Home } from './pages/Home';

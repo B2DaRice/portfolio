@@ -1,62 +1,40 @@
 import { Box, Typography } from '@mui/material'
 
 const componentStyle = () => {
-  const line = {
-    width: '105%',
-    animation: 'flickerName 11s linear reverse infinite',
-    zIndex: 6,
-  }
 
   return ({
     dividerContainer: {
       width: '100%',
       overflow: 'hidden',
-      padding: '80px 0 60px 0'
+      padding: '60px 0 50px 0'
     },
     container: {
       width: '100%',
       color: 'white',
       justifyContent: 'center',
       alignItems: 'center',
-      transform: 'rotate(-2deg)',
       zIndex: 5,
       perspective: '0',
       paddingBottom: '20px',
-
-      // '& div': {
-      //   position: 'absolute'
-      // }
-    },
-    whiteLine: {
-      ...line,
-      backgroundColor: 'white',
-      boxShadow: '0 0 10px 2px white',
-      opacity: '0.25'
-    },
-    purpleLine: {
-      ...line,
-      backgroundColor: '#E900FF',
-      boxShadow: '0 0 14px 4px #E900FF',
-      opacity: '0.5'
     },
     middleBox: {
-      height: '100px',
+      height: '50px',
       width: '120%',
       backgroundColor: 'black',
       justifyContent: 'end',
       alignItems: 'center',
-      boxShadow: '0 0 20px 20px black',
+      // boxShadow: '0 0 20px 20px black',
 
       '& p': {
-        paddingTop: '25px',
-        fontFamily: 'Lightman', 
-        fontSize: '3em', 
-        color: '#ffffff',
-        textShadow: '5px 5px 25px #E900FF',
+        fontFamily: 'Athena', 
+        fontSize: '2.5em', 
+        color: 'white',
+        textShadow: '0px 0px 10px #2200FF',
         opacity: 1,
-        animation: 'flickerName 9s linear reverse infinite',
-        fontStretch: 'condensed',
-        transform: 'rotate(2deg)',
+        fontWeight: 'bold',
+        fontStyle: 'italic',
+        // animation: 'flickerName 9s linear reverse infinite',
+        // fontStretch: 'condensed',
       },
     },
   })
@@ -69,17 +47,21 @@ type lineProps = {
   rotate?: number;
   translate: number;
   opacity: number;
+  flicker?: number;
 }
 
 const lineStyles = ({
   color = '',
   reverse = false,
+  flicker = 0,
   ...numProps
 }) => {
   let nums = { ...numProps }
   if (reverse) {
     Object.keys(numProps).forEach( key => nums[key] = numProps[key] * -1 )
   }  
+
+  const flickerStyle = flicker ? { animation: `flickerName ${flicker}s linear reverse infinite` } : {}
 
   const {
     size, 
@@ -88,14 +70,19 @@ const lineStyles = ({
     translate, 
     opacity,
   } = nums
+
   return {
-    width: '105%',
-    animation: 'flickerName 10s linear reverse infinite',
-    zIndex: 6,
-    backgroundColor: color,
-    boxShadow: `0 0 ${size}px ${radius}px ${color}`,
-    transform: `rotate(${rotate}deg) translateY(${translate}px)`,
+    width: '120%',
+    zIndex: color === 'white' ? 6 : 7,
     opacity,
+
+    "& .MuiBox-root": {
+      ...flickerStyle,
+      width: '100%',
+      backgroundColor: color,
+      boxShadow: `0 0 ${size}px ${radius}px ${color}`,
+      transform: `rotate(${rotate}deg) translateY(${translate}px)`,
+    }
   }
 }
 
@@ -103,62 +90,56 @@ export const HomeDivider = ({ title }: { title: string }) => {
   const styles = componentStyle()
   const lineConfig: { [key: string]: lineProps } = {
     outter: {
-      size: 30,
-      radius: 8,
+      size: 10,
+      radius: 2,
       color: '#E900FF',
-      translate: -42,
-      opacity: 0.25
+      translate: -21,
+      opacity: .60
     },
     middle: {
-      size: 15,
-      radius: 4,
+      size: 30,
+      radius: 5,
       color: 'white',
-      translate: -23,
-      opacity: 0.05
+      translate: -15,
+      opacity: 0.60
     },
     inner: {
-      size: 25,
-      radius: 6,
+      size: 20,
+      radius: 3,
       color: '#E900FF',
-      translate: 0,
-      opacity: 0.25
+      translate: -10,
+      opacity: 0.5
     }
   }
 
   return (
     <Box className='flexCol' sx={styles.dividerContainer}>
       <Box className='flexCol' sx={styles.container}>
-        <Box sx={{
-          ...lineStyles({ ...lineConfig.outter, rotate: 2 }),
-          height: '0.5px'
-        }} />
-        <Box sx={{
-          ...lineStyles({ ...lineConfig.middle, rotate: 1.5 }),
-          height: '1px'
-        }} />
-        <Box sx={{
-          ...lineStyles({ ...lineConfig.inner, rotate: 0.5 }),
-          height: '3px',
-        }} />
+        <Box sx={lineStyles({ ...lineConfig.outter, rotate: -.1, flicker: 10 })} >
+          <Box sx={{ height: '2px' }} />
+        </Box>
+        <Box sx={lineStyles({ ...lineConfig.middle, rotate: 0 })} >
+          <Box sx={{ height: '1px' }} />
+        </Box>
+        <Box sx={lineStyles({ ...lineConfig.inner, rotate: -0.2 })} >
+          <Box sx={{ height: '0.5px' }} />
+        </Box>
 
         <Box className='flexRow' sx={styles.middleBox}>
-          <Box sx={{ paddingRight: '350px' }}>
+          <Box sx={{ padding: '0 300px 18px 0' }}>
             <Typography>{ title }</Typography>
           </Box>
         </Box>
 
-        <Box sx={{
-          ...lineStyles({ ...lineConfig.inner, rotate: 1.5, translate: -5 }),
-          height: '2px'
-        }} />
-        <Box sx={{
-          ...lineStyles({ ...lineConfig.middle, rotate: 0.5, translate: 16 }),
-          height: '1px'
-        }} />
-        <Box sx={{
-          ...lineStyles({ ...lineConfig.outter, rotate: 1.2, translate: 35 }),
-          height: '0.5px'
-        }} />
+        <Box sx={lineStyles({ ...lineConfig.inner, rotate: 0.3, translate: 0 })} >
+          <Box sx={{ height: '1.5px' }} />
+        </Box>
+        <Box sx={lineStyles({ ...lineConfig.middle, rotate: -0.1, translate: 5, flicker: 12 })} >
+          <Box sx={{ height: '0.5px' }} />
+        </Box>
+        <Box sx={lineStyles({ ...lineConfig.outter, rotate: 0.1, translate: 9 })} >
+          <Box sx={{ height: '0.5px' }} />
+        </Box>
       </Box>
     </Box>
   )

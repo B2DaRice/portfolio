@@ -1,5 +1,6 @@
 import { Box, Typography } from '@mui/material'
 import { HomeDivider } from '../../components/HomeDivider'
+import { NeonLightLine } from '../../components/NeonLightLine'
 
 export const HomeCardDeveloper = () => {
   const gifUrl = 'https://media.giphy.com/media/XIqCQx02E1U9W/giphy.gif'
@@ -12,7 +13,6 @@ export const HomeCardDeveloper = () => {
         height: '100%'
       }}
     >
-      <HomeDivider title='Developer' />
 
       <Box 
         className='flexRow'

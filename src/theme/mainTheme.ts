@@ -11,8 +11,8 @@ export const mainTheme = createTheme({
   },
   typography: {
     allVariants: {
-      fontFamily: 'Athena',
-      color: '#FFC600'
+      fontFamily: 'sans-serif',
+      color: 'white'
     }
   },
   components: {
