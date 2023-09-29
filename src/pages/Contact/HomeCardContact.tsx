@@ -12,7 +12,6 @@ export const HomeCardContact = () => {
         height: '100%'
       }}
     >
-      <HomeDivider title='Contact' />
 
       <Box 
         className='flexRow'

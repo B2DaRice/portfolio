@@ -13,6 +13,7 @@ const componentStyle = () => {
       blur: '3px',
       backgroundColor: 'black',
       boxShadow: '0 0 20px 30px black',
+      zIndex: 100
     },
     middleBox: {
       // height: '100%',

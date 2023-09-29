@@ -17,14 +17,36 @@ export const NameLights = () => {
   return (
     <Box className='flexCol' sx={{
       alignItems: 'start',
-      position: 'sticky',
-      top: 30
+      
     }}>
-      <span style={textStyle}>
+      <Box
+        component='img'
+        src='/assets/images/walking_away.png'
+        sx={{
+          position: 'fixed',
+          height: '110vh',
+          transform: 'scaleX(-1)',
+          right: 670,
+          zIndex: 5,
+          pointerEvents: 'none'
+        }}
+      />
+      
+      <span style={{ 
+        ...textStyle, 
+        zIndex: 4,
+        position: 'sticky',
+        top: 60
+      }}>
         Brice
       </span>
 
-      <span style={textStyle}>
+      <span style={{ 
+        ...textStyle, 
+        zIndex: 6,
+        position: 'sticky',
+        top: 250
+      }}>
         Garlick
       </span>
 

@@ -75,14 +75,16 @@ export const Home = () => {
         lineHeight: 1,
       }}
     >
-      <Box className='flexCol' sx={{
+      <Box className='flexRow' sx={{
         height: 'calc(100vh - 60px)',
         width: '100%',
-        padding: 13,
+        padding: '100px 0 0 150px',
+        zIndex: 5
       }}>
         <NameLights />
       </Box>
 
+      
       
 
       <Box 
@@ -92,6 +94,7 @@ export const Home = () => {
         sx={{ 
           position: 'sticky', 
           top: '-10px',
+          zIndex: 10
         }}
         ref={menuRef}
       >
@@ -115,7 +118,7 @@ export const Home = () => {
       <Box
         width='100%' 
         sx={{
-          zIndex: 1,
+          zIndex: 9,
           marginTop: '0px',
           height: 'calc(100vh - 20px)',
         }}

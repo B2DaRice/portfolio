@@ -13,11 +13,6 @@ export const HomeCardDeveloper = () => {
         height: '100%'
       }}
     >
-      {/* <HomeDivider title='Developer' /> */}
-      {/* <Box sx={{ width: '100%', height: '20px' }}>
-        
-      </Box> */}
-      
 
       <Box 
         className='flexRow'
