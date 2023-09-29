@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useState, useRef } from 'react'
 import { Box } from '@mui/material'
 import { NameLights } from '../components/NameLights'
 import { RouteLinks, RouteLinkType } from '../components/RouteLinks'
@@ -10,7 +10,7 @@ import {
   HomeCardAbout,
   HomeCardContact
 } from './HomeCards'
-import { useLocation } from 'react-router-dom'
+import { NeonLightLine } from '../components/NeonLightLine'
 
 const links: { [cardKey: string]: RouteLinkType } = {
   devCard: { 
@@ -38,32 +38,31 @@ const links: { [cardKey: string]: RouteLinkType } = {
     to: '/about', 
     component: HomeCardAbout 
   },
-  contactCard: { 
-    title: 'Contact', 
-    to: '/contact', 
-    component: HomeCardContact 
-  }
+  // contactCard: { 
+  //   title: 'Contact', 
+  //   to: '/contact', 
+  //   component: HomeCardContact 
+  // }
 }
 
 export const Home = () => {
-  let location = useLocation();
-  const [selectedCard, setSelectedCard] = useState('')
+  const [selectedCard, setSelectedCard] = useState('devCard')
   const menuRef = useRef<HTMLElement>()
 
   const onRouteClick = (cardKey: string) => {
-    if (cardKey !== selectedCard) {
-      setSelectedCard(cardKey);
+    setSelectedCard(cardKey);
 
-      if (menuRef.current) {
-        const menuBounds = menuRef.current.getBoundingClientRect()
+    if (menuRef.current) {
+      const menuBounds = menuRef.current.getBoundingClientRect()
 
-        if (menuBounds.top > 13) {
-          menuRef.current.scrollIntoView({
-            behavior: "smooth",
-          })
-        }
+      if (menuBounds.top > 13) {
+        menuRef.current.scrollIntoView({
+          behavior: "smooth",
+          inline: "center",
+        })
       }
     }
+    
   }
 
   return (
@@ -77,31 +76,48 @@ export const Home = () => {
       }}
     >
       <Box className='flexCol' sx={{
-        height: 'calc(100vh - 105px)',
+        height: 'calc(100vh - 60px)',
         width: '100%',
-        padding: 15,
+        padding: 13,
       }}>
         <NameLights />
       </Box>
 
+      
+
       <Box 
-        width='100%' 
+        width='100%'
+        // height='300px'
         id="routeMenu"
-        sx={{ position: 'sticky', top: '28px' }}
+        sx={{ 
+          position: 'sticky', 
+          top: '-10px',
+        }}
         ref={menuRef}
       >
+        <NeonLightLine lineOptions={{ rotate: -0.1, flicker: 10, translate: -21 }} lineType='purple' height={'2px'} />
+        <NeonLightLine lineOptions={{ rotate: 0.1, translate: -15 }} lineType='white' height={'1px'} />
+        <NeonLightLine lineOptions={{ rotate: -0.2, translate: -10 }} lineType='lightPurple' height={'0.5px'} />
+
         <RouteLinks 
           links={links} 
-          onRouteClick={onRouteClick} 
+          onRouteClick={onRouteClick}
+          activeRoute={selectedCard}
         />
+
+        <NeonLightLine lineOptions={{ rotate: -0.3 }} lineType='lightPurple' height={'1.5px'} />
+        <NeonLightLine lineOptions={{ rotate: -0.1, translate: 5, flicker: 12 }} lineType='white' height={'0.5px'} />
+        <NeonLightLine lineOptions={{ rotate: 0.2, translate: 15 }} lineType='white' height={'1px'} />
+        <NeonLightLine lineOptions={{ rotate: 0, translate: 9 }} lineType='purple' height={'0.5px'} />
       </Box>
       
 
       <Box
         width='100%' 
-        sx={{ 
-          marginTop: '13px',
-          height: 'calc(100vh - 100px)',
+        sx={{
+          zIndex: 1,
+          marginTop: '0px',
+          height: 'calc(100vh - 20px)',
         }}
       >
         { selectedCard && 
