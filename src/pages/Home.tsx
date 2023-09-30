@@ -45,6 +45,44 @@ const links: { [cardKey: string]: RouteLinkType } = {
   // }
 }
 
+type socialLinkType = {
+  title: string;
+  src: string;
+}
+
+const socialLinksConfig = [
+  {
+    title: 'LinkedIn',
+    src: '/assets/images/logos/social/linkedin.svg',
+    href: 'https://www.linkedin.com/in/brice-garlick-b9016628/'
+  },
+  {
+    title: 'GitHub',
+    src: '/assets/images/logos/social/github.svg',
+    href: 'https://github.com/B2DaRice'
+  },
+  {
+    title: 'Instagram',
+    src: '/assets/images/logos/social/instagram.svg',
+    href: 'https://www.instagram.com/ajo.grande/'
+  },
+  {
+    title: 'TikTok',
+    src: '/assets/images/logos/social/tiktok.png',
+    href: 'https://www.tiktok.com/@sax_hair'
+  },
+  {
+    title: 'Facebook',
+    src: '/assets/images/logos/social/facebook.svg',
+    href: 'https://www.facebook.com/bwgarlick/'
+  },
+  {
+    title: 'DeviantArt',
+    src: '/assets/images/logos/social/deviantart.svg',
+    href: 'https://www.deviantart.com/b2darice/gallery'
+  },
+]
+
 export const Home = () => {
   const [selectedCard, setSelectedCard] = useState('devCard')
   const menuRef = useRef<HTMLElement>()
@@ -79,40 +117,52 @@ export const Home = () => {
         height: 'calc(100vh - 60px)',
         width: '100%',
         padding: '100px 0 0 150px',
-        zIndex: 5
+        zIndex: 5,
+        justifyContent: 'space-between',
       }}>
         <NameLights />
+
+        <Box className='flexCol' sx={{
+          width: '6em',
+          height: '100%',
+          padding: '100px 20px 0 0',
+          gap: '10px',
+        }}>
+          {
+            socialLinksConfig.map(({ title, src, href }) => (
+              <a 
+                href={href}
+                target="_blank" 
+                rel="noreferrer"
+                key={title.toLowerCase()}
+              >
+                <Box
+                  component={'img'}
+                  src={src}
+                  alt={title}
+                  sx={{
+                    width: '80%',
+
+                    '&:hover': {
+                      width: '100%',
+                      transition: 'width 0.2s ease-in-out'
+                    }
+                  }}
+                />
+              </a>
+            ))
+          }
+        </Box>
       </Box>
 
-      
-      
 
-      <Box 
-        width='100%'
-        // height='300px'
-        id="routeMenu"
-        sx={{ 
-          position: 'sticky', 
-          top: '-10px',
-          zIndex: 10
-        }}
-        ref={menuRef}
-      >
-        <NeonLightLine lineOptions={{ rotate: -0.1, flicker: 10, translate: -21 }} lineType='purple' height={'2px'} />
-        <NeonLightLine lineOptions={{ rotate: 0.1, translate: -15 }} lineType='white' height={'1px'} />
-        <NeonLightLine lineOptions={{ rotate: -0.2, translate: -10 }} lineType='lightPurple' height={'0.5px'} />
+      <RouteLinks 
+        links={links} 
+        onRouteClick={onRouteClick}
+        activeRoute={selectedCard}
+        menuRef={menuRef}
+      />
 
-        <RouteLinks 
-          links={links} 
-          onRouteClick={onRouteClick}
-          activeRoute={selectedCard}
-        />
-
-        <NeonLightLine lineOptions={{ rotate: -0.3 }} lineType='lightPurple' height={'1.5px'} />
-        <NeonLightLine lineOptions={{ rotate: -0.1, translate: 5, flicker: 12 }} lineType='white' height={'0.5px'} />
-        <NeonLightLine lineOptions={{ rotate: 0.2, translate: 15 }} lineType='white' height={'1px'} />
-        <NeonLightLine lineOptions={{ rotate: 0, translate: 9 }} lineType='purple' height={'0.5px'} />
-      </Box>
       
 
       <Box
