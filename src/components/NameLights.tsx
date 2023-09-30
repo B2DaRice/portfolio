@@ -1,6 +1,4 @@
 import { Box, Typography } from '@mui/material'
-import { useState } from 'react'
-
 
 export const NameLights = () => {
   const textStyle = {
@@ -17,14 +15,13 @@ export const NameLights = () => {
   return (
     <Box className='flexCol' sx={{
       alignItems: 'start',
-      
     }}>
       <Box
         component='img'
         src='/assets/images/walking_away.png'
         sx={{
-          position: 'fixed',
-          height: '110vh',
+          position: 'absolute',
+          height: '95vh',
           transform: 'scaleX(-1)',
           right: 670,
           zIndex: 5,
@@ -45,9 +42,18 @@ export const NameLights = () => {
         ...textStyle, 
         zIndex: 6,
         position: 'sticky',
-        top: 250
+        top: 250,
+        alignItems: 'start'
       }}>
         Garlick
+
+        <Typography align='left' sx={{
+          fontFamily: 'Athena',
+          fontSize: '28px',
+          lineHeight: 0.5
+        }}>
+          Creativity, Passion, Critical Thinking, Dad Jokes
+        </Typography>
       </span>
 
       {/* <Typography sx={{ 
