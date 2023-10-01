@@ -1,9 +1,17 @@
 import { Box, Typography } from '@mui/material'
+import { useScreenSize } from '../../hooks/helpers'
 
-export const NameLights = () => {
+export const NameLightsLaptop = () => {
+  const { isMobile, currBreakpoint } = useScreenSize()
+  const fontSizes = {
+    desktop: '12em',
+    laptop: '9em',
+    tablet: '',
+    mobile: ''
+  }
   const textStyle = {
     fontFamily: 'Lightman', 
-    fontSize: '12em', 
+    fontSize: fontSizes[currBreakpoint], 
     color: '#ffffff',
     textShadow: '0 0 40px #E900FF',
     opacity: 1,
@@ -15,7 +23,6 @@ export const NameLights = () => {
   return (
     <Box className='flexCol' sx={{
       alignItems: 'start',
-    
     }}>
       <Box
         component='img'
@@ -24,7 +31,7 @@ export const NameLights = () => {
           position: 'absolute',
           height: '95vh',
           transform: 'scaleX(-1)',
-          right: 670,
+          left: currBreakpoint === 'desktop' ? '775px' : '575px',
           zIndex: 5,
           pointerEvents: 'none'
         }}
@@ -34,7 +41,7 @@ export const NameLights = () => {
         ...textStyle, 
         zIndex: 4,
         position: 'sticky',
-        top: 60
+        top: 60,
       }}>
         Brice
       </span>

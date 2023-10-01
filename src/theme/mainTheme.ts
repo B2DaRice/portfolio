@@ -2,6 +2,7 @@ import { createTheme } from '@mui/material';
 
 const athenaFontUrl = `${process.env.PUBLIC_URL}/assets/fonts/athena.ttf`
 const lightmanFontUrl = `${process.env.PUBLIC_URL}/assets/fonts/lightman.ttf`
+const noNameFontUrl = `${process.env.PUBLIC_URL}/assets/fonts/noName.ttf`
 
 /**
  * Thresholds:
@@ -71,6 +72,14 @@ export const mainTheme = createTheme({
           font-display: swap;
           font-weight: 400;
           src: local('Lightman'), local('Lightman-light'), url(${lightmanFontUrl}) format('truetype');
+        }
+
+        @font-face {
+          font-family: 'NoName';
+          font-style: normal;
+          font-display: swap;
+          font-weight: 500;
+          src: local('NoName'), local('NoName-light'), url(${noNameFontUrl}) format('truetype');
         }
 
         @keyframes flickerName {
