@@ -161,65 +161,74 @@ export const mainTheme = createTheme({
           0% {
             transform: translate(0px, 0px) scale(1);
             z-index: 7;
+            filter: drop-shadow(0 0 10px black);
             animation-timing-function: ease-out;
           }
           10% {
             animation-timing-function: ease-out;
+            filter: drop-shadow(0 0 10px black);
             z-index: 6;
           }
           20% {
             transform: translate(-580px, -20px) scale(0.98);
             z-index: 5;
+            filter: blur(.5px) drop-shadow(0 0 10px black);
             animation-timing-function: ease-out;
           }
           25% {
             transform: translate(-600px, -32px) scale(0.95);
-            filter: brightness(0.90) blur(1px);
+            filter: brightness(0.90) blur(1px) drop-shadow(0 0 10px black);
             animation-timing-function: ease-in;
             z-index: 4;
           }
           30% {
             transform: translate(-580px, -44px) scale(0.92);
-            filter: brightness(0.80) blur(3px);
+            filter: brightness(0.80) blur(1.5px) drop-shadow(0 0 10px black);
             animation-timing-function: ease-in;
             z-index: 3;
           }
           40% {
             animation-timing-function: ease-in;
+            filter: brightness(0.80) blur(2px) drop-shadow(0 0 10px black);
             z-index: 2;
           }
           50% {
             transform: translate(0px, -64px) scale(0.90);
             animation-timing-function: ease-out;
+            filter: brightness(0.80)blur(3px) drop-shadow(0 0 10px black);
             z-index: 1;
           }
           60% {
             animation-timing-function: ease-out;
+            filter: brightness(0.80)blur(2px) drop-shadow(0 0 10px black);
             z-index: 2;
           }
           70% {
             transform: translate(580px, -44px) scale(0.92);
             animation-timing-function: ease-out;
+            filter: brightness(0.9) blur(1px) drop-shadow(0 0 10px black);
             z-index: 3;
           }
           75% {
             transform: translate(600px, -32px) scale(0.95);
-            filter: brightness(0.9) blur(1px);
+            filter: brightness(1) blur(.5px) drop-shadow(0 0 10px black);
             animation-timing-function: ease-in;
             z-index: 4;
           }
           80% {
             transform: translate(580px, -20px) scale(0.98);
-            filter: brightness(1) blur(0px);
             animation-timing-function: ease-in;
+            filter: drop-shadow(0 0 10px black);
             z-index: 5;
           }
           90% {
             z-index: 6;
+            filter: drop-shadow(0 0 10px black);
             animation-timing-function: ease-in;
           }
           100% {
             transform: translate(0px, 0px) scale(1);
+            filter: drop-shadow(0 0 10px black);
             animation-timing-function: ease-out;
             z-index: 7;
           }
