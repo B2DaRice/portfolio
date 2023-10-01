@@ -64,7 +64,7 @@ export const NeonLightLine = ({
   } = nums
 
   const lineStyles =  {
-    width: '120%',
+    width: '100%',
     zIndex: color === 'white' ? 6 : 7,
     opacity,
 

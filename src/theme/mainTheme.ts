@@ -3,6 +3,27 @@ import { createTheme } from '@mui/material';
 const athenaFontUrl = `${process.env.PUBLIC_URL}/assets/fonts/athena.ttf`
 const lightmanFontUrl = `${process.env.PUBLIC_URL}/assets/fonts/lightman.ttf`
 
+/**
+ * Thresholds:
+ * 
+ *   0% - 
+ * 
+ * @param isInBack 
+ * @returns 
+ */
+// const generateRotateCss = (isInBack = false) => {
+//   let css = ''
+//   for(let i = 0; i < 100; i++) {
+    
+//     css += `
+//       @keyframes rotateClockwiseAt${i} {
+        
+//       }
+//     `
+//   }
+//   return css
+// }
+
 export const mainTheme = createTheme({
   palette: {
     primary: {
@@ -85,10 +106,10 @@ export const mainTheme = createTheme({
           }
           60.5% {
             opacity: 1;
-          },
+          }
           61% {
             opacity: 0.2;
-          },
+          }
           62% {
             opacity: 1;
           }
@@ -127,12 +148,80 @@ export const mainTheme = createTheme({
           }
           60.5% {
             opacity: 1;
-          },
+          }
           61% {
             opacity: 0.2;
-          },
+          }
           62% {
             opacity: 0.25;
+          }
+        }
+
+        @keyframes rotateClockwise {
+          0% {
+            transform: translate(0px, 0px) scale(1);
+            z-index: 7;
+            animation-timing-function: ease-out;
+          }
+          10% {
+            animation-timing-function: ease-out;
+            z-index: 6;
+          }
+          20% {
+            transform: translate(-580px, -20px) scale(0.98);
+            z-index: 5;
+            animation-timing-function: ease-out;
+          }
+          25% {
+            transform: translate(-600px, -32px) scale(0.95);
+            filter: brightness(0.90) blur(1px);
+            animation-timing-function: ease-in;
+            z-index: 4;
+          }
+          30% {
+            transform: translate(-580px, -44px) scale(0.92);
+            filter: brightness(0.80) blur(3px);
+            animation-timing-function: ease-in;
+            z-index: 3;
+          }
+          40% {
+            animation-timing-function: ease-in;
+            z-index: 2;
+          }
+          50% {
+            transform: translate(0px, -64px) scale(0.90);
+            animation-timing-function: ease-out;
+            z-index: 1;
+          }
+          60% {
+            animation-timing-function: ease-out;
+            z-index: 2;
+          }
+          70% {
+            transform: translate(580px, -44px) scale(0.92);
+            animation-timing-function: ease-out;
+            z-index: 3;
+          }
+          75% {
+            transform: translate(600px, -32px) scale(0.95);
+            filter: brightness(0.9) blur(1px);
+            animation-timing-function: ease-in;
+            z-index: 4;
+          }
+          80% {
+            transform: translate(580px, -20px) scale(0.98);
+            filter: brightness(1) blur(0px);
+            animation-timing-function: ease-in;
+            z-index: 5;
+          }
+          90% {
+            z-index: 6;
+            animation-timing-function: ease-in;
+          }
+          100% {
+            transform: translate(0px, 0px) scale(1);
+            animation-timing-function: ease-out;
+            z-index: 7;
           }
         }
       `
