@@ -117,7 +117,7 @@ export const HomeCardDeveloper = () => {
               padding={addPadding ? '8px' : '0'}
               sx={{
                 position: 'absolute',
-                filter: 'drop-shadow(0 0 10px black)',
+                // filter: 'drop-shadow(0 0 10px black)',
                 animation: 'rotateClockwise 30s linear reverse infinite',
                 animationTimingFunction: 'ease-out',
                 animationDelay: `-${index * 3.4}s`,
@@ -142,7 +142,7 @@ export const HomeCardDeveloper = () => {
       }}>
         <Typography align='left' sx={{
           // fontFamily: 'sans-serif',
-          fontSize: '1.5em',
+          fontSize: '1.25em',
           color: '#c2c2c2',
         }}>
           {`
@@ -152,7 +152,7 @@ export const HomeCardDeveloper = () => {
         
         <Typography align='left' sx={{
           // fontFamily: 'sans-serif',
-          fontSize: '1.5em',
+          fontSize: '1.25em',
           color: '#c2c2c2',
         }}>
           {`
@@ -164,7 +164,7 @@ export const HomeCardDeveloper = () => {
 
         <Typography align='left' sx={{
           // fontFamily: 'sans-serif',
-          fontSize: '1.5em',
+          fontSize: '1.25em',
           color: '#c2c2c2',
         }}>
           {`
@@ -180,14 +180,13 @@ export const HomeCardDeveloper = () => {
 
         <Typography align='left' sx={{
           // fontFamily: 'sans-serif',
-          fontSize: '1.5em',
+          fontSize: '1.25em',
           color: '#c2c2c2',
         }}>
           {`
             I am always eager to learn new technologies and frameworks, and I have completed multiple courses in web 
             development and/or architecture/frameworks, such as Vue, Tailwind CSS, Svelte, Single Page Application 
-            architecture, and more. My goal is to create innovative and impactful web solutions that improve the lives 
-            and health of people around the world.
+            architecture, and more. My goal is to create best looking webdsites with the best user experiences out there.
           `}
         </Typography>
       </Box>
