@@ -15,6 +15,7 @@ export const NameLights = () => {
   return (
     <Box className='flexCol' sx={{
       alignItems: 'start',
+    
     }}>
       <Box
         component='img'

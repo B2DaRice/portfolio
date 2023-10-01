@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react'
-import { Box } from '@mui/material'
+import { Box, Typography } from '@mui/material'
 import { NameLights } from '../components/NameLights'
 import { RouteLinks, RouteLinkType } from '../components/RouteLinks'
 import { 
@@ -45,12 +45,13 @@ const links: { [cardKey: string]: RouteLinkType } = {
   // }
 }
 
-type socialLinkType = {
+type SocialLinkType = {
   title: string;
   src: string;
+  href: string;
 }
 
-const socialLinksConfig = [
+const socialLinksConfig: SocialLinkType[] = [
   {
     title: 'LinkedIn',
     src: '/assets/images/logos/social/linkedin.svg',
@@ -113,6 +114,18 @@ export const Home = () => {
         lineHeight: 1,
       }}
     >
+      <Box
+        component='img'
+        src='/assets/images/under_construction.png'
+        sx={{
+          zIndex: 100,
+          position: 'fixed',
+          top: -110,
+          left: -100,
+          transform: 'rotate(-40deg)',
+          transition: 'top 0.5s ease-in-out',
+        }}
+      />
       <Box className='flexRow' sx={{
         height: 'calc(100vh - 60px)',
         width: '100%',
@@ -170,7 +183,7 @@ export const Home = () => {
         sx={{
           zIndex: 9,
           marginTop: '0px',
-          height: 'calc(100vh - 20px)',
+          height: 'calc(100vh - 31px)',
         }}
       >
         { selectedCard && 
@@ -178,7 +191,20 @@ export const Home = () => {
         }
       </Box>
       
-      
+      <Box className='flexRow' sx={{
+        backgroundColor: 'black',
+        width: '100%',
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}>
+        <Box sx={{
+          fontSize: '.65em',
+          padding: '10px 0'
+        }}>
+          -- copyright 2023 by Brice Garlick --
+        </Box>
+
+      </Box>
     </Box>
   )
 }
