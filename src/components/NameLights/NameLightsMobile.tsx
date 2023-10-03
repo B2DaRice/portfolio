@@ -16,26 +16,21 @@ export const NameLightsMobile = () => {
     <Box className='flexCol' sx={{
       alignItems: 'end',
       width: '100%',
-      padding: '70px 30px 0 0 '
+      padding: '90px 30px 0 0 '
     }}>
       
       <span style={{ 
         ...textStyle,
-        fontSize: '5em',
+        fontSize: '85px',
         zIndex: 4,
-        // position: 'sticky',
-        // top: 60,
       }}>
         Brice
       </span>
 
       <span style={{ 
         ...textStyle, 
-        fontSize: '4em',
+        fontSize: '60px',
         zIndex: 6,
-        // position: 'sticky',
-        // top: 250,
-        // alignItems: 'start'
       }}>
         Garlick
       </span>
@@ -61,17 +56,6 @@ export const NameLightsMobile = () => {
           </Typography>
         ))}
       </Box>
-      
-
-      {/* <Typography sx={{ 
-        fontFamily: 'Lightman', 
-        fontSize: 48, 
-        color: 'white',
-        position: 'relative',
-        boxShadow: '0 0 10px 10px white'
-      }}>
-        Brice Garlick
-      </Typography> */}
     </Box>
   )
 }
