@@ -43,15 +43,19 @@ export const NameLightsMobile = () => {
       <Box className='flexCol' sx={{
         width: '100%',
         alignItems: 'end',
-        paddingRight: '20px'
+        padding: '50px 20px 0 0',
+        gap: '10px',
+        textShadow: '0 0 10px #E900FF',
+        animation: 'flickerName 12s linear reverse infinite',
       }}>
         {'Critical Thinking, Creativity, Passion, Dad Jokes'.split(', ').map((word, i) => (
           <Typography key={i} align='right' sx={{
-            fontFamily: 'Athena',
-            fontSize: '1.25em',
+            fontFamily: 'LasEnter',
+            fontSize: '30px',
             zIndex: 6,
             lineHeight: 1,
             width: '100%',
+            transform: 'rotate(-5deg)',
           }}>
             {word}
           </Typography>

@@ -56,9 +56,10 @@ export const NameLightsLaptop = () => {
         Garlick
 
         <Typography align='left' sx={{
-          fontFamily: 'Athena',
-          fontSize: '28px',
-          lineHeight: 0.5
+          fontFamily: 'LasEnter',
+          fontSize: '36px',
+          lineHeight: 0.5,
+          textShadow: '0 0 20px #E900FF',
         }}>
           Creativity, Passion, Critical Thinking, Dad Jokes
         </Typography>

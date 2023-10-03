@@ -15,9 +15,11 @@ const componentStyle = () => ({
   },
   middleBox: {
     width: '100%',
-    justifyContent: 'center',
+    padding: '0 150px',
+    justifyContent: 'space-around',
     gap: 10,
-    fontFamily: 'Lightman',
+    fontFamily: 'NeonGlow',
+    filter: 'blur(.5px)',
   },
 })
 

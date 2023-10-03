@@ -3,6 +3,9 @@ import { createTheme } from '@mui/material';
 const athenaFontUrl = `${process.env.PUBLIC_URL}/assets/fonts/athena.ttf`
 const lightmanFontUrl = `${process.env.PUBLIC_URL}/assets/fonts/lightman.ttf`
 const noNameFontUrl = `${process.env.PUBLIC_URL}/assets/fonts/noName.ttf`
+const neonGlowFontUrl = `${process.env.PUBLIC_URL}/assets/fonts/neonGlow.otf`
+const showLightsFontUrl = `${process.env.PUBLIC_URL}/assets/fonts/showLights.ttf`
+const lasEnterFontUrl = `${process.env.PUBLIC_URL}/assets/fonts/lasEnter.ttf`
 
 /**
  * Thresholds:
@@ -72,6 +75,30 @@ export const mainTheme = createTheme({
           font-display: swap;
           font-weight: 400;
           src: local('Lightman'), local('Lightman-light'), url(${lightmanFontUrl}) format('truetype');
+        }
+
+        @font-face {
+          font-family: 'NeonGlow';
+          font-style: normal;
+          font-display: swap;
+          font-weight: 400;
+          src: local('NeonGlow'), local('NeonGlow-light'), url(${neonGlowFontUrl}) format('openType');
+        }
+
+        @font-face {
+          font-family: 'ShowLights';
+          font-style: normal;
+          font-display: swap;
+          font-weight: 400;
+          src: local('ShowLights'), local('ShowLights-light'), url(${showLightsFontUrl}) format('truetype');
+        }
+
+        @font-face {
+          font-family: 'LasEnter';
+          font-style: normal;
+          font-display: swap;
+          font-weight: 400;
+          src: local('LasEnter'), local('LasEnter-light'), url(${lasEnterFontUrl}) format('truetype');
         }
 
         @font-face {
