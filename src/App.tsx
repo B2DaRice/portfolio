@@ -26,7 +26,6 @@ function App() {
           top: -110,
           left: -100,
           transform: 'rotate(-40deg)',
-          transition: 'top 0.5s ease-in-out',
         }}
       />
 
@@ -36,15 +35,10 @@ function App() {
         backgroundImage: `url(${bgImgUrl})`,
         backgroundPosition: 'center'
       }}>
-        {/* <BackgroundStairs /> */}
-        {/* <NameInLights /> */}
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<MainLayout />}>
               <Route index element={isMobile ? <HomeMobile /> : <HomeLaptop />} />
-              {/* <Route path="blogs" element={<Blogs />} />
-              <Route path="contact" element={<Contact />} />
-              <Route path="*" element={<NoPage />} /> */}
             </Route>
           </Routes>
         </BrowserRouter>

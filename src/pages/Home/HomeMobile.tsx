@@ -4,25 +4,9 @@ import { NameLightsMobile } from '../../components/NameLights/NameLightsMobile'
 import { pageLinkConfigs, socialLinkConfigs, SocialLinkType } from './configs'
 import { RouteLinks, RouteLinkType } from '../../components/RouteLinks'
 import { NeonLightLine } from '../../components/NeonLightLine'
+import { RepoButton } from '../../components/RepoButton'
 
 export const HomeMobile = () => {
-  const [selectedCard, setSelectedCard] = useState('devCard')
-
-  const onRouteClick = (cardKey: string) => {
-    setSelectedCard(cardKey);
-
-    // if (menuRef.current) {
-    //   const menuBounds = menuRef.current.getBoundingClientRect()
-
-    //   if (menuBounds.top > 13) {
-    //     menuRef.current.scrollIntoView({
-    //       behavior: "smooth",
-    //       inline: "center",
-    //     })
-    //   }
-    // }
-    
-  }
 
   return (
     <Box
@@ -50,14 +34,21 @@ export const HomeMobile = () => {
           sx={{ 
             height: '115vh',
             position: 'absolute',
-            // padding: '50px 0 0 0',
-            // transform: 'scaleX(-1)',
             left: '-140px',
             bottom: '-150px',
             zIndex: 5,
             pointerEvents: 'none'
           }}
         />
+      </Box>
+
+      <Box sx={{
+        zIndex: 100,
+        position: 'absolute',
+        top: '20px',
+        right: '20px',
+      }}>
+        <RepoButton />
       </Box>
 
       <NameLightsMobile />
@@ -81,14 +72,14 @@ export const HomeMobile = () => {
             fontSize: '1.25em',
             fontWeight: 'boldest'
           }}>
-            I told you it's not ready for phones yet 🙄
+            Not quite ready for phones yet 🤷
           </Typography>
         </Box>
       </Box>
 
       <Box className='flexRow' sx={{
         width: '100%',
-        height: '6em',
+        height: '80px',
         paddingBottom: '30px',
         gap: '10px',
         justifyContent: 'center',
@@ -114,44 +105,6 @@ export const HomeMobile = () => {
           ))
         }
       </Box>
-      {/* </Box> */}
-
-
-      {/* <RouteLinks 
-        links={links} 
-        onRouteClick={onRouteClick}
-        activeRoute={selectedCard}
-      /> */}
-
-      
-
-      {/* <Box
-        width='100%' 
-        sx={{
-          zIndex: 9,
-          marginTop: '0px',
-          height: 'calc(100vh - 31px)',
-        }}
-      >
-        { selectedCard && 
-          pageLinkConfigs[selectedCard].component({})
-        }
-      </Box>
-      
-      <Box className='flexRow' sx={{
-        backgroundColor: 'black',
-        width: '100%',
-        alignItems: 'center',
-        justifyContent: 'center',
-      }}>
-        <Box sx={{
-          fontSize: '.65em',
-          padding: '10px 0'
-        }}>
-          -- copyright 2023 by Brice Garlick --
-        </Box>
-
-      </Box> */}
     </Box>
   )
 }
