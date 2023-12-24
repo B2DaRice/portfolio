@@ -5,7 +5,10 @@ import {
   HomeCardArtist,
   HomeCardFather,
   HomeCardAbout,
-  HomeCardContact
+  HomeCardContact,
+  CalistaPage,
+  RoxiePage,
+  JaxPage
 } from '../HomeCards'
 
 export const pageLinkConfigs: { [cardKey: string]: RouteLinkType } = {
@@ -14,25 +17,40 @@ export const pageLinkConfigs: { [cardKey: string]: RouteLinkType } = {
     to: '/developer', 
     component: HomeCardDeveloper 
   },
-  musicCard: { 
-    title: 'Musician', 
-    to: '/musician', 
-    component: HomeCardMusician 
+  // musicCard: { 
+  //   title: 'Musician', 
+  //   to: '/musician', 
+  //   component: HomeCardMusician 
+  // },
+  // artCard: { 
+  //   title: 'Artist', 
+  //   to: '/artist', 
+  //   component: HomeCardArtist 
+  // },
+  // dadCard: { 
+  //   title: 'Father', 
+  //   to: '/father', 
+  //   component: HomeCardFather
+  // },
+  // aboutCard: { 
+  //   title: 'About', 
+  //   to: '/about', 
+  //   component: HomeCardAbout 
+  // },
+  calistaCard: { 
+    title: 'Calistapher', 
+    to: '/father/calista', 
+    component: CalistaPage
   },
-  artCard: { 
-    title: 'Artist', 
-    to: '/artist', 
-    component: HomeCardArtist 
+  roxieCard: { 
+    title: 'Roxette', 
+    to: '/father/roxie', 
+    component: RoxiePage
   },
-  dadCard: { 
-    title: 'Father', 
-    to: '/father', 
-    component: HomeCardFather
-  },
-  aboutCard: { 
-    title: 'About', 
-    to: '/about', 
-    component: HomeCardAbout 
+  jaxCard: { 
+    title: 'Hugh-Jax', 
+    to: '/father/jax', 
+    component: JaxPage
   },
   // contactCard: { 
   //   title: 'Contact', 

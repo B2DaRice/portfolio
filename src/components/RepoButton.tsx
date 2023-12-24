@@ -1,7 +1,7 @@
 import { Box, Typography } from '@mui/material'
 import { useScreenSize } from '../hooks/helpers'
 
-export const RepoButton = ({}) => {
+export const RepoButton = () => {
   const { isMobile } = useScreenSize()
 
   return (
