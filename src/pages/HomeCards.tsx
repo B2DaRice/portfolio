@@ -4,6 +4,9 @@ import { HomeCardArtist } from './Artist/HomeCardArtist';
 import { HomeCardFather } from './Father/HomeCardFather';
 import { HomeCardAbout } from './About/HomeCardAbout';
 import { HomeCardContact } from './Contact/HomeCardContact';
+import { CalistaPage } from './Father/CalistaPage';
+import { RoxiePage } from './Father/RoxiePage';
+import { JaxPage } from './Father/JaxPage';
 
 export {
   HomeCardDeveloper,
@@ -11,5 +14,8 @@ export {
   HomeCardArtist,
   HomeCardFather,
   HomeCardAbout,
-  HomeCardContact
+  HomeCardContact,
+  CalistaPage,
+  RoxiePage,
+  JaxPage
 }
